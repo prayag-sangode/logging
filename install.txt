@@ -1,0 +1,12 @@
+helm repo add elastic https://helm.elastic.co
+helm upgrade  --install elasticsearch -f elastic-values.yaml elastic/elasticsearch -n logging --create-namespace
+
+
+kubectl get secrets --namespace=logging elasticsearch-master-credentials -ojsonpath='{.data.username}' | base64 -d
+kubectl get secrets --namespace=logging elasticsearch-master-credentials -ojsonpath='{.data.password}' | base64 -d
+
+
+helm repo add fluent https://fluent.github.io/helm-charts
+helm upgrade --install fluent-bit fluent/fluent-bit -f fluentbit-values.yaml -n logging 
+
+helm upgrade --install kibana -f kibana-values.yaml elastic/kibana -n logging
