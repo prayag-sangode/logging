@@ -1,0 +1,8 @@
+replicas: 1
+
+volumeClaimTemplate:
+  storageClassName: gp2
+
+persistence:
+  labels:
+    enabled: true
