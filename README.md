@@ -181,7 +181,11 @@ root@log-app-<pod-id>:/usr/local/apache2# while true; do curl http://localhost/;
 
 Log in to Kibana using the credentials obtained earlier. Once logged in, explore the logs by selecting **"Discover"** and viewing the `logstash-*` indices.
 
-### 10. **CleanUp**
+### 10. **View Logs**
+
+In Kibana, navigate to **Stack Management > Data Views**, add a new data view for `logstash-*` to visualize logs in Kibana's **Discover** section.
+
+### 11. **CleanUp**
 
 ```bash
 helm uninstall fluent-bit -n logging
@@ -194,8 +198,4 @@ kubectl delete all --all
 
 eksctl delete cluster --name my-eks1
 ```
-
-### 10. **View Logs**
-
-In Kibana, navigate to **Stack Management > Data Views**, add a new data view for `logstash-*` to visualize logs in Kibana's **Discover** section.
 
