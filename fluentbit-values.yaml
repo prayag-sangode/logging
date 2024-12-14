@@ -1,0 +1,33 @@
+config:
+  outputs: |
+    [OUTPUT]
+        Name es
+        #Match kube.*
+        Match *
+        Type  _doc
+        Host elasticsearch-master
+        Port 9200
+        HTTP_User elastic
+        HTTP_Passwd HNQy7WPGielgH34u
+        tls On
+        tls.verify Off
+        Logstash_Format On
+        Logstash_Prefix logstash
+        Retry_Limit False
+        Suppress_Type_Name On
+
+#    [OUTPUT]
+ #       Name es
+ #       Match host.*
+ #       Type  _doc
+ #       Host elasticsearch-master
+ #       Port 9200
+ #       HTTP_User elastic
+ #       HTTP_Passwd your-secure-password-here
+ #       tls On
+ #       tls.verify Off
+ #       Logstash_Format On
+ #       Logstash_Prefix node
+ #       Retry_Limit False
+ #       Suppress_Type_Name On
+ #
