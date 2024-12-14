@@ -1,0 +1,57 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: log-app-config
+data:
+  index.html: |
+    <html>
+      <head>
+        <title>Log App</title>
+      </head>
+      <body>
+        <h1>Welcome to the Log App</h1>
+        <p>This page generates logs on Apache HTTP server.</p>
+      </body>
+    </html>
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: log-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: log-app
+  template:
+    metadata:
+      labels:
+        app: log-app
+    spec:
+      containers:
+      - name: log-app
+        image: httpd:2.4
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: app-volume
+          mountPath: /usr/local/apache2/htdocs
+      volumes:
+      - name: app-volume
+        configMap:
+          name: log-app-config
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: log-app-service
+spec:
+  selector:
+    app: log-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      
