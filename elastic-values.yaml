@@ -1,8 +1,24 @@
 replicas: 1
 
 volumeClaimTemplate:
-  storageClassName: gp2
+  accessModes: ["ReadWriteOnce"]
+  storageClassName: standard-rwo
+  resources:
+    requests:
+      storage: 40Gi
+
+resources:
+  requests:
+    cpu: 500m
+    memory: 1Gi
+  limits:
+    cpu: 1
+    memory: 2Gi
+
+esJavaOpts: "-Xms512m -Xmx512m"
 
 persistence:
-  labels:
-    enabled: true
+  enabled: true
+  storageClass: standard-rwo
+  size: 20Gi
+      
