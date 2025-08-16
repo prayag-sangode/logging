@@ -48,13 +48,14 @@ cd logging/ELK/docker
 
 ---
 
-## Set Permissions for Elasticsearch
+## Set Permissions for Elasticsearch and make start-kibana.sh executable
 
 Before starting the stack, ensure Elasticsearch can write to its data directory:
 
 ```bash
 chown -R 1000:1000 ./elasticsearch/data
 chmod -R 750 ./elasticsearch/data
+chmod 755 kibana/start-kibana.sh
 ```
 
 > Elasticsearch container runs as UID `1000`. These permissions prevent `node locks` errors.
