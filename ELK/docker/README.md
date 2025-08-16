@@ -19,7 +19,7 @@ Kibana service token and enrollment are handled automatically. No manual passwor
 
 ```
 logging/
-└── elk/
+└── ELK/
     └── docker/
         ├── docker-compose.yml
         ├── elasticsearch/
