@@ -43,7 +43,7 @@ logging/
 
 ```bash
 git clone https://github.com/prayag-sangode/logging.git
-cd logging/elk/docker
+cd logging/ELK/docker
 ```
 
 ---
