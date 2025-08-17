@@ -1,4 +1,4 @@
-# Elasticsearch, Filebeat and Kibana installation on K8s
+# Elasticsearch, Filebeat and Kibana using helm on K8s
 
 ## Add Elastic Helm Repo
 
