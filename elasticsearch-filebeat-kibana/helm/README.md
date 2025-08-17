@@ -136,8 +136,3 @@ This will show all Nginx error logs from the `dev` namespace.
 * Ensure Filebeat is running as a DaemonSet and has access to container logs.
 * Elasticsearch credentials are required if security is enabled.
 * Use `https` and `-k` flag with curl to ignore self-signed certificates.
-
-
-
-Do you want me to do that next?
-```
